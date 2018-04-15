@@ -1,11 +1,11 @@
 6
 9
-0 60 256 598 spinosaurus.png
-1 50 677 45 ours.png
-2 40 542 604 loup.png
-3 30 -1 89 renard.jpg
-4 20 306 244 taupe.jpg
-5 10 692 607 ver.png
+0 60 262 20 homme.jpg
+1 50 630 114 ours.png
+2 40 582 407 loup.png
+3 30 401 590 renard.jpg
+4 20 130 554 taupe.jpg
+5 10 8 298 ver.png
 0 0 1 0
 1 0 2 0
 2 0 3 0

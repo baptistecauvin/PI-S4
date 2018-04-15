@@ -154,7 +154,6 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
 
-
     //Bouton pour sauvegarder, qui apparait tout en haut de la tool box
     //Avec le texte "SAVE" dedans
     m_tool_box.add_child(m_save);
@@ -261,18 +260,17 @@ void Graph::menu()
     while(choix!=4)
     {
 
-        if(mouse_y>175 && mouse_x<550 && mouse_x>375 && mouse_y<215 && mouse_b&1)
+        if(mouse_y>155 && mouse_x<600 && mouse_x>435 && mouse_y<195 && mouse_b&1)
         {
             choix=1;
         }
 
-        if(mouse_y>275 && mouse_x<550 && mouse_x>375 && mouse_y<325 && mouse_b&1)
+        if(mouse_y>240 && mouse_x<600 && mouse_x>435 && mouse_y<280 && mouse_b&1)
         {
             choix=2;
-
         }
 
-        if(mouse_y>375 && mouse_x<550 && mouse_x>375 && mouse_y<425 && mouse_b&1)
+        if(mouse_y>335 && mouse_x<600 && mouse_x>435 && mouse_y<375 && mouse_b&1)
         {
             choix=3;
         }
@@ -303,6 +301,7 @@ void Graph::menu()
                 make_example(fichier);
                 break;
             }
+
             //Charge le fichier Graphe 3
             case 3:
             {
@@ -327,7 +326,7 @@ void Graph::menu()
 /// de chargement de fichiers par exemple.
 /// Bien sûr on ne veut pas que vos graphes soient construits
 /// "à la main" dans le code comme ça.
-void Graph::make_example(std::string filename)
+void Graph::make_example(std::string filename)  /// sous-programme afficher graphe
 {
     //Ouverture du fichier en mode lecture
     std::ifstream fichier(filename,std::ios::in);
@@ -335,97 +334,113 @@ void Graph::make_example(std::string filename)
     if(fichier)
     {
         m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
-        fichier>> nb_sommet;
-        fichier>> nb_arrete;
+        fichier>> nb_sommet;  //designe la premiere ligne du fichier
+        fichier>> nb_arrete; //designe la deuxieme ligne du fichier
 
-        for (int i=0 ; i<nb_sommet; i++ )
+        for (int i=0 ; i<nb_sommet; i++ )  //boucle pour incrémenter qui va lire tous la partie sommet du fichier
         {
-            fichier >>tmp;
+            fichier >>tmp;  //variable tampon
             fichier >>value;
             fichier >>verx;
             fichier>>very;
             fichier>>name;
-            add_interfaced_vertex(i,value,verx,very, name);
+            add_interfaced_vertex(i,value,verx,very, name); // cree un sommet en mode interface avec les donneés du fichier
         }
 
-        for(int j=0; j<nb_arrete; j++)
+        for(int j=0; j<nb_arrete; j++)  // boucle permettant de lire la partie sommet du fichier
         {
             fichier >>tmp;
             fichier >> s1;
             fichier >> s2;
             fichier >> poids;
-            add_interfaced_edge(j,s1,s2,poids);
+            add_interfaced_edge(j,s1,s2,poids); //cree une arrete en mode interface avec les données du fichier
         }
-        fichier.close();
+        fichier.close(); //fermeture du fichier
     }
 
     else
-        std::cout<< "impossible d'ouvrir le fichier" ;
+        std::cout<< "impossible d'ouvrir le fichier" ; //condition permettant de voir si le fichier arrive a s'ouvrir
 
 }
 
 
-void Graph::sauvegarder(std::string filename)
+void Graph::sauvegarder(std::string filename) /// focntion sauvegarder dans un fichier
 {
 
-    if(m_interface->m_save.clicked())
+    if(m_interface->m_save.clicked()) // bouton en mode interface
     {
 
 
-        std::ofstream fichier(filename,std::ios::out);
-        fichier << m_vertices.size()<<std::endl;
-        fichier << m_edges.size()<<std::endl;
-        for(auto it=m_vertices.begin(); it!=m_vertices.end(); ++it)
+        std::ofstream fichier(filename,std::ios::out); //ouverture du fichier en mode ecriture
+        fichier << m_vertices.size()<<std::endl; // recuperation de la taille des données de la map sommet
+        fichier << m_edges.size()<<std::endl;  // recuperation de la taille des données de la map sarrete
+        for(auto it=m_vertices.begin(); it!=m_vertices.end(); ++it) //utilisation d'iterateur pour pouvoir parcourir les différentes map
         {
-            fichier << it->first<< " " ;
+            fichier << it->first<< " " ; //prend la premier donnee du fichier
 
             fichier << it->second.m_value<<" ";
-            fichier << it->second.m_interface->m_top_box.get_posx()<<" ";
-            fichier << it->second.m_interface->m_top_box.get_posy()<<" ";
-            fichier << it->second.m_interface->m_img.get_pic_name()<<std::endl;
+            fichier << it->second.m_interface->m_top_box.get_posx()<<" "; //sauver la valuer de la position en x du sommet
+            fichier << it->second.m_interface->m_top_box.get_posy()<<" "; //sauver la valuer de la position en y du sommet
+            fichier << it->second.m_interface->m_img.get_pic_name()<<std::endl;  //sauve l'image
 
 
         }
 
         int i=0;
-        for(const auto & it:m_edges)
+        for(const auto & it:m_edges) //utilisation d'iterateur
         {
             fichier<<i; //id
-            fichier<<" "<<it.second.m_from; //S1
-            fichier<<" "<<it.second.m_to; //S2
-            fichier<<" "<<it.second.m_weight<<"\n"; //poid
+            fichier<<" "<<it.second.m_from; //Sommet1
+            fichier<<" "<<it.second.m_to; //Sommet2
+            fichier<<" "<<it.second.m_weight<<"\n"; //poids
             i++;
         }
 
         fichier.close();
     }
 }
-void Graph::ajouter_sommet()
+void Graph::ajouter_sommet() ///ajouter sommet
 {
     if(m_interface->m_add_sommet.clicked())
     {
 
-        int choix2;
+        int choix2; //variable choix
         std::cout <<"que voulez vous ajouter"<<std::endl;
-        std::cout<<" 1-dino1 2-dino2 3_dino3"<<std::endl;
-        std::cin >> choix2;
+        std::cout<<" 1-pteranodon 2-herbe 3-tyranosaure 4-ankylosaure 5-megalosaure 6-diplodaucus"<<std::endl;
+        std::cin >> choix2; //demande du choix pour pouvoir ajouter un annimal
 
         if(choix2==1)
         {
-            add_interfaced_vertex(m_vertices.size(),50,300,400,"pteranodon.png");
+            add_interfaced_vertex(m_vertices.size(),50,300,400,"pteranodon.png"); //si l'utilsateur tape 1 ajoute un pteranodon
         }
         if(choix2==2)
         {
             add_interfaced_vertex(m_vertices.size(),50,500,600,"herbe.png");
         }
+        if(choix2==3)
+        {
+            add_interfaced_vertex(m_vertices.size(),50,50,50,"tyranosaure.png");
+        }
+        if(choix2==4)
+        {
+            add_interfaced_vertex(m_vertices.size(),50,50,50,"ankylosaure.png");
+        }
+        if(choix2==5)
+        {
+            add_interfaced_vertex(m_vertices.size(),50,50,50,"megalosaure.png");
+        }
+        if(choix2==6)
+        {
+            add_interfaced_vertex(m_vertices.size(),50,50,50,"diplodaucus.png");
 
+        }
     }
 }
 void Graph::ajouter_arrete()
 {
     if(m_interface->m_add_arrete.clicked())
     {
-        int S1,S2;
+        int S1,S2; //varaible sommet 1et sommet 2
         int poid;
 
         std::cout<< "choissisez le sommet de depart" <<std::endl;
@@ -435,7 +450,7 @@ void Graph::ajouter_arrete()
         std::cout<<"quelle poid pour votre arrete"<<std::endl;
         std::cin>>poid;
 
-        add_interfaced_edge(m_edges.size(),S1,S2,poid);
+        add_interfaced_edge(m_edges.size(),S1,S2,poid); //ajoute sur l'interface une arrete du sommet choissi par l'utilisateur
     }
 }
 
@@ -443,7 +458,7 @@ void Graph::supprimer_arrete()
 {
     if(m_interface->m_supa.clicked())
     {
-        int eidx;
+        int eidx;  //variable de l'id de l'arrette a supprimer
         std::cout<<"quelle arrete a supprimer "<<std::endl;
         std::cin>>eidx;
 
@@ -501,15 +516,15 @@ void Graph::supprimer_sommet()
         Vertex &remed=m_vertices.at(eidx);
         if (m_interface && remed.m_interface)
         {
-            if(remed.m_in.empty() == false || remed.m_out.empty() == false)
+            if(remed.m_in.empty() == false || remed.m_out.empty() == false) //verification avec un booleen de l'adjacence des arrete a un sommet
             {
-                for(auto it=m_edges.begin(); it!=m_edges.end(); ++it)
+                for(auto it=m_edges.begin(); it!=m_edges.end(); ++it) //utilisation d'itérateur pour parcourir la map m-edges
                 {
                     if(it->second.m_from == eidx || it->second.m_to ==eidx)
                     {
                         Edge &remed=m_edges.at(it->first);
                         m_interface->m_main_box.remove_child( remed.m_interface->m_top_edge );
-                        m_edges.erase(it->first);
+                        m_edges.erase(it->first); //supprime les arret adjacente au sommet supprimer
 
 
                     }
@@ -520,7 +535,7 @@ void Graph::supprimer_sommet()
 
         }
         m_interface->m_main_box.remove_child( remed.m_interface->m_top_box );
-        m_vertices.erase( eidx );
+        m_vertices.erase( eidx ); //suppression du sommet choisi
     }
 }
 
@@ -569,7 +584,7 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
-    sauvegarder(fichier);
+    sauvegarder(fichier); //appel de nos sous programme
     ajouter_arrete();
     ajouter_sommet();
     supprimer_arrete();

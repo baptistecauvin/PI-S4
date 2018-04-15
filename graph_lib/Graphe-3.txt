@@ -1,18 +1,18 @@
 13
 35
-0 100 518 1 tyranosaure.png
-1 90 743 79 megalosaure.png
-2 60 1 80 velociraptor.png
-3 70 771 338 carnotaure.png
-4 100 232 1 spinosaurus.Png
-5 50 414 446 triceratops.png
-6 50 140 570 brachiosaure.png
-7 50 192 405 diplodocus.png
-8 60 709 615 stegosaure.png
-9 68 189 202 ankylosaure.png
-10 40 1 367 pteranodon.png
-11 0 -1 613 poisson.png
-12 0 374 615 herbe.png
+0 90 475 1 tyranosaure.png
+1 90 752 96 megalosaure.png
+2 60 1 97 velociraptor.png
+3 70 135 205 carnotaure.png
+4 100 241 1 spinosaurus.Png
+5 50 462 250 triceratops.png
+6 100 160 585 brachiosaure.png
+7 50 328 458 diplodocus.png
+8 60 773 599 stegosaure.png
+9 60 766 375 ankylosaure.png
+10 40 1 398 pteranodon.png
+11 0 1 615 poisson.png
+12 0 502 615 herbe.png
 0 0 2 40
 1 0 5 40
 2 0 6 40

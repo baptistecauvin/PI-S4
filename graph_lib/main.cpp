@@ -13,10 +13,9 @@ int main()
 
 
     /// Un exemple de graphe
-    Graph g;
+    Graph g; //creation d'objet
 
-    //Appel de la methode du menu
-    g.menu();
+    g.menu(); //appel de menu
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )

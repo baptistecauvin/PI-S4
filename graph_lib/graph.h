@@ -310,21 +310,20 @@ private :
 
     std::string fichier;
     std::string name;
-    int tmp;
-    int id=0;
+    int tmp; //variable tampon
+    int id=0; //initialise l'id a 0
     int s1,s2;
     int verx,very;
     unsigned int nb_sommet;
     unsigned int nb_arrete;
     int poids,value;
-
 public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
     /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
     Graph (GraphInterface *interface=nullptr) :
         m_interface(interface)  {  }
-     Graph(int x,int t,unsigned int nb ,int p,int val,int vx,int vy);
+    Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy);
     void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
     void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
@@ -333,10 +332,9 @@ public:
     /// Cette méthode est à enlever et remplacer par un système
     /// de chargement de fichiers par exemple.
     void make_example(std::string filename);
-    //Méthode du menu principale
     void menu();
 
-    int get_posx();
+    int get_posx(); //getteur pour recuperer la position de x
     int get_posy();
     //std::map<int,Vertex>get_vertices(){return m_vertices ;}
     void ajouter_sommet();
@@ -346,7 +344,8 @@ public:
     void sauvegarder(std::string filename);
     //methode qui permet de revenir au menu principal
     void retour();
-    /// La méthode update contient toutes les autres méthodes, supprimer, ajouter, sauvegarder...
+    /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
+    /// Elle contient toutes les autres méthodes : supprimer, ajouter, sauvegarder...
     void update();
     //Méthode qui permet de fermer le programme
     void quitter();

@@ -141,17 +141,22 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_top_box.set_dim(1000,740);
     m_top_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
 
+    //Boite qui va contenir tous les bputons pour ajouter, supprimer, sauvegarder...
+    //Boite positionner a gauche
     m_top_box.add_child(m_tool_box);
     m_tool_box.set_dim(80,720);
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
     m_tool_box.set_bg_color(BLANCBLEU);
 
+    //Boite qui va contenir les graphes chargé
     m_top_box.add_child(m_main_box);
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
     m_main_box.set_bg_color(BLANCJAUNE);
 
 
+    //Bouton pour sauvegarder, qui apparait tout en haut de la tool box
+    //Avec le texte "SAVE" dedans
     m_tool_box.add_child(m_save);
     m_save.add_child(m_text_save);
     m_save.set_dim(75,40);
@@ -160,6 +165,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_save.set_bg_color(ORANGE);
     m_text_save.set_message(" SAVE ");
 
+    //Bouton pour ajouter un sommet, qui apparait en 2eme dans la tool box
+    //Avec le texte "AJOUTER S" dedans
     m_tool_box.add_child(m_add_sommet);
     m_add_sommet.add_child(m_text_adds);
     m_add_sommet.set_dim(75,40);
@@ -168,6 +175,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_add_sommet.set_bg_color(VERT);
     m_text_adds.set_message(" AJOUTER S ");
 
+    //Bouton pour ajouter une arete, qui apparait en 3eme dans la tool box
+    //Avec le texte "AJOUTER A" dedans
     m_tool_box.add_child(m_add_arrete);
     m_add_arrete.add_child(m_text_adda);
     m_add_arrete.set_dim(75,40);
@@ -176,22 +185,28 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_add_arrete.set_bg_color(BLEU);
     m_text_adda.set_message(" AJOUTER A ");
 
+    //Bouton pour supprimer un sommet, qui apparait en 4eme dans la tool box
+    //Avec le texte "SUPP S" dedans
     m_tool_box.add_child(m_sup);
     m_sup.add_child(m_text_sup);
     m_sup.set_dim(75,40);
     m_sup.set_posx(0);
     m_sup.set_posy(120);
     m_sup.set_bg_color(ROUGE);
-    m_text_sup.set_message(" SUPPRIMER S ");
+    m_text_sup.set_message(" SUPP S ");
 
+    //Bouton pour supprimer une arete, qui apparait en 5eme dans la tool box
+    //Avec le texte "SUPP A" dedans
     m_tool_box.add_child(m_supa);
     m_supa.add_child(m_text_supa);
     m_supa.set_dim(75,40);
     m_supa.set_posx(0);
     m_supa.set_posy(160);
     m_supa.set_bg_color(KAKI);
-    m_text_supa.set_message(" SUPPRIMER A ");
+    m_text_supa.set_message(" SUPP A ");
 
+    //Bouton pour revenir au menu principal, qui apparait en 6eme dans la tool box
+    //Avec le texte "RETOUR" dedans
     m_tool_box.add_child(m_back);
     m_back.add_child(m_text_back);
     m_back.set_dim(75,40);
@@ -200,6 +215,8 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_back.set_bg_color(BLANC);
     m_text_back.set_message(" RETOUR ");
 
+    //Bouton pour quitter le programme, qui apparait en dernier dans la tool box
+    //Avec le texte "QUITTER" dedans
     m_tool_box.add_child(m_q);
     m_q.add_child(m_text_q);
     m_q.set_dim(75,40);
@@ -209,6 +226,7 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_text_q.set_message(" QUITTER ");
 }
 
+//Constructeur
 Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
 {
     x=id;
@@ -223,8 +241,9 @@ Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
 
 void Graph::menu()
 {
-    BITMAP* menu_principal, *menu, *page;
+    BITMAP* menu_principal;
 
+    //Chargement de l'image menu principal
     menu_principal=load_bitmap("menu_principal.bmp",NULL);
     if (!menu_principal)
     {
@@ -233,49 +252,42 @@ void Graph::menu()
         exit(EXIT_FAILURE);
     }
 
-    page=load_bitmap("page.bmp",NULL);
-    if (!page)
-    {
-        allegro_message("pas pu trouver/charger page.bmp");
-        allegro_exit();
-        exit(EXIT_FAILURE);
-    }
-
-    menu=create_bitmap(SCREEN_W,SCREEN_H);
-
+    //On charge l'image menu principal sur le screen, en position 0; 0
     blit(menu_principal,screen,0,0,0,0,SCREEN_W,SCREEN_H);
 
     int choix=0;
 
+    //Boucle du menu
     while(choix!=4)
     {
 
-        if(mouse_y>130 && mouse_x<400 && mouse_x>290 && mouse_y<160 && mouse_b&1)
+        if(mouse_y>175 && mouse_x<550 && mouse_x>375 && mouse_y<215 && mouse_b&1)
         {
             choix=1;
-            draw_sprite(menu, page,0,0);
         }
 
-        if(mouse_y>215 && mouse_x<400 && mouse_x>290 && mouse_y<250 && mouse_b&1)
+        if(mouse_y>275 && mouse_x<550 && mouse_x>375 && mouse_y<325 && mouse_b&1)
         {
             choix=2;
-            draw_sprite(menu, page,0,0);
 
         }
 
-        if(mouse_y>300 && mouse_x<400 && mouse_x>290 && mouse_y<335 && mouse_b&1)
+        if(mouse_y>375 && mouse_x<550 && mouse_x>375 && mouse_y<425 && mouse_b&1)
         {
             choix=3;
-            draw_sprite(menu, page,0,0);
         }
 
-        rest(20);
-
+        //Quitter
+        if(mouse_y>722 && mouse_x<1024 && mouse_x>875 && mouse_y<768 && mouse_b&1)
+        {
+            choix=4;
+        }
 
         if(mouse_b&1 && choix<=4 && choix>=1)
         {
             switch(choix)
             {
+            //charge le fichier graphe 1
             case 1:
             {
                 choix=4;
@@ -283,6 +295,7 @@ void Graph::menu()
                 make_example(fichier);
                 break;
             }
+            //Charge le fichier garphe 2
             case 2:
             {
                 choix=4;
@@ -290,6 +303,7 @@ void Graph::menu()
                 make_example(fichier);
                 break;
             }
+            //Charge le fichier Graphe 3
             case 3:
             {
                 choix=4;
@@ -297,6 +311,7 @@ void Graph::menu()
                 make_example(fichier);
                 break;
             }
+            //Ferme le programme
             case 4:
             {
                 exit(1);
@@ -428,8 +443,11 @@ void Graph::supprimer_arrete()
 {
     if(m_interface->m_supa.clicked())
     {
+        int eidx;
+        std::cout<<"quelle arrete a supprimer "<<std::endl;
+        std::cin>>eidx;
 
-        int eidx=4; /// référence vers le Edge à enlever
+        ; /// référence vers le Edge à enlever
         Edge &remed=m_edges.at(eidx);
 
         std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
@@ -472,10 +490,13 @@ void Graph::supprimer_arrete()
     }
 }
 
-void Graph::supprimer_sommet(int eidx)
+void Graph::supprimer_sommet()
 {
     if(m_interface->m_sup.clicked())
     {
+        int eidx;
+        std::cout<<"quelle sommet a supprimer "<<std::endl;
+        std::cin>>eidx;
 
         Vertex &remed=m_vertices.at(eidx);
         if (m_interface && remed.m_interface)
@@ -503,7 +524,8 @@ void Graph::supprimer_sommet(int eidx)
     }
 }
 
-
+//Méthode qui permet de revenir au menu principal
+//Pour pouvoir charger un autre graph
 void Graph::retour()
 {
     Graph g;
@@ -516,6 +538,7 @@ void Graph::retour()
     }
 }
 
+//Methode qui ferme la fenetre allegro, puis ferme le programme
 void Graph::quitter()
 {
     if(m_interface->m_q.clicked())
@@ -550,9 +573,12 @@ void Graph::update()
     ajouter_arrete();
     ajouter_sommet();
     supprimer_arrete();
-    g.supprimer_sommet();
+    supprimer_sommet();
     quitter();
 
+    //a reçoit ce que retourne la méthode t
+    //Necessaire de mettre la méthode retour dans une boucle sinon elle est appelé tout le temps
+    //est cela pose problème quand on lance le programme
     int a=m_interface->t();
     if(a==1)
     {
@@ -561,6 +587,7 @@ void Graph::update()
 
 }
 
+//Retourne 1 quand on appuye sur le bouton RETOUR
 int GraphInterface::t()
 {
     if(m_back.clicked())

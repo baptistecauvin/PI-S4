@@ -15,6 +15,7 @@ int main()
     /// Un exemple de graphe
     Graph g;
 
+    //Appel de la methode du menu
     g.menu();
 
     /// Vous gardez la main sur la "boucle de jeu"

@@ -289,6 +289,8 @@ public :
     // Le constructeur met en place les éléments de l'interface
     // voir l'implémentation dans le .cpp
     GraphInterface(int x, int y, int w, int h);
+
+    //Méthode qui retourne 1 quand l'utilisateur clique sur le bouton RETOUR
     int t();
 };
 
@@ -315,6 +317,7 @@ private :
     unsigned int nb_sommet;
     unsigned int nb_arrete;
     int poids,value;
+
 public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
@@ -330,6 +333,7 @@ public:
     /// Cette méthode est à enlever et remplacer par un système
     /// de chargement de fichiers par exemple.
     void make_example(std::string filename);
+    //Méthode du menu principale
     void menu();
 
     int get_posx();
@@ -337,12 +341,14 @@ public:
     //std::map<int,Vertex>get_vertices(){return m_vertices ;}
     void ajouter_sommet();
     void ajouter_arrete();
-    void supprimer_sommet(int eidx);
+    void supprimer_sommet();
     void supprimer_arrete();
     void sauvegarder(std::string filename);
+    //methode qui permet de revenir au menu principal
     void retour();
-    /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
+    /// La méthode update contient toutes les autres méthodes, supprimer, ajouter, sauvegarder...
     void update();
+    //Méthode qui permet de fermer le programme
     void quitter();
 };
 

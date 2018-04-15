@@ -1,0 +1,166 @@
+# depslib dependency file v1.0
+1522761222 source:c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522656089 c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522539041 c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522575424 c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522636616 c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575069 source:c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522515823 source:c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636919 source:c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522657075 source:c:\users\bcauv\onedrive\documents\ing2\semestre 2\informatique\projet s4\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522575069 source:c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522575424 c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522515823 source:c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522539041 c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222372 c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522636616 c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522636919 source:c:\users\bcauv\desktop\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522657075 source:c:\users\bcauv\desktop\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522656089 c:\users\bcauv\desktop\graph_lib_exemple_graph\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522761222 source:c:\users\bcauv\desktop\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522761224 source:e:\projet piscine\graph_lib v1\graph.cpp
+	"graph.h"
+
+1522656090 e:\projet piscine\graph_lib v1\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522539042 e:\projet piscine\graph_lib v1\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222374 e:\projet piscine\graph_lib v1\grman\grman_couleurs.h
+
+1522575426 e:\projet piscine\graph_lib v1\grman\coords.h
+	<cmath>
+
+1522636618 e:\projet piscine\graph_lib v1\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522575070 source:e:\projet piscine\graph_lib v1\grman\coords.cpp
+	"coords.h"
+
+1522515824 source:e:\projet piscine\graph_lib v1\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522636920 source:e:\projet piscine\graph_lib v1\grman\widget.cpp
+	"widget.h"
+
+1522657076 source:e:\projet piscine\graph_lib v1\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+

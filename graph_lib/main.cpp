@@ -27,7 +27,10 @@ int main()
         grman::mettre_a_jour();
     }
 
+
+    g.sauvegarder();
     grman::fermer_allegro();
+
 
     return 0;
 }

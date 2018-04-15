@@ -270,6 +270,8 @@ void WidgetVSlider::interact_over()
                     IMAGE
 ****************************************************/
 
+
+
 void WidgetImage::reframe()
 {
     if (m_pic_name=="")

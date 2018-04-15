@@ -170,7 +170,7 @@
 1522575426 c:\users\bcauv\pi-s4\graph_lib\grman\coords.h
 	<cmath>
 
-1522515824 source:c:\users\bcauv\pi-s4\graph_lib\grman\grman.cpp
+1523811100 source:c:\users\bcauv\pi-s4\graph_lib\grman\grman.cpp
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -184,7 +184,7 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
-1522539042 c:\users\bcauv\pi-s4\graph_lib\grman\grman.h
+1523811217 c:\users\bcauv\pi-s4\graph_lib\grman\grman.h
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
@@ -193,7 +193,7 @@
 
 1509222374 c:\users\bcauv\pi-s4\graph_lib\grman\grman_couleurs.h
 
-1522636618 c:\users\bcauv\pi-s4\graph_lib\grman\widget.h
+1523811336 c:\users\bcauv\pi-s4\graph_lib\grman\widget.h
 	"grman.h"
 	<iostream>
 	<string>
@@ -201,18 +201,24 @@
 	<algorithm>
 	<allegro.h>
 
-1522636920 source:c:\users\bcauv\pi-s4\graph_lib\grman\widget.cpp
+1523811167 source:c:\users\bcauv\pi-s4\graph_lib\grman\widget.cpp
 	"widget.h"
 
-1522657076 source:c:\users\bcauv\pi-s4\graph_lib\main.cpp
+1523810972 source:c:\users\bcauv\pi-s4\graph_lib\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
 
-1523810159 c:\users\bcauv\pi-s4\graph_lib\graph.h
+1523810972 c:\users\bcauv\pi-s4\graph_lib\graph.h
 	<vector>
 	<map>
 	<string>
 	<memory>
+	"grman/widget.h"
 	"grman/grman.h"
+
+1523810972 source:c:\users\bcauv\pi-s4\graph_lib\graph.cpp
+	"graph.h"
+	<fstream>
+	<iostream>
 

@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1523015065 source:c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\graph.cpp
+1523009385 source:c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\graph.cpp
 	"graph.h"
 	<fstream>
 	<iostream>
 
-1523015003 c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\graph.h
+1523007822 c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\graph.h
 	<vector>
 	<map>
 	<string>
@@ -52,48 +52,18 @@
 1522942051 source:c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\grman\widget.cpp
 	"widget.h"
 
-1523015003 source:c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\main.cpp
+1523009125 source:c:\users\paulr\onedrive\documents\graph_lib_exemple_graph\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
 
-1523015066 source:e:\graph_lib v5\graph.cpp
-	"graph.h"
-	<fstream>
-	<iostream>
-
-1523015004 e:\graph_lib v5\graph.h
-	<vector>
-	<map>
-	<string>
-	<memory>
-	"grman/widget.h"
-	"grman/grman.h"
-
-1522942052 e:\graph_lib v5\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1522539042 e:\graph_lib v5\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
+1522575070 source:e:\graph_lib v3\grman\coords.cpp
 	"coords.h"
-	"widget.h"
 
-1509222374 e:\graph_lib v5\grman\grman_couleurs.h
-
-1522575426 e:\graph_lib v5\grman\coords.h
+1522575426 e:\graph_lib v3\grman\coords.h
 	<cmath>
 
-1522575070 source:e:\graph_lib v5\grman\coords.cpp
-	"coords.h"
-
-1522515824 source:e:\graph_lib v5\grman\grman.cpp
+1522515824 source:e:\graph_lib v3\grman\grman.cpp
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -107,10 +77,98 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
-1522942052 source:e:\graph_lib v5\grman\widget.cpp
+1522539042 e:\graph_lib v3\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
 	"widget.h"
 
-1523015156 source:e:\graph_lib v5\main.cpp
+1509222374 e:\graph_lib v3\grman\grman_couleurs.h
+
+1522942052 e:\graph_lib v3\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522942052 source:e:\graph_lib v3\grman\widget.cpp
+	"widget.h"
+
+1523009126 source:e:\graph_lib v3\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523007824 e:\graph_lib v3\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/widget.h"
+	"grman/grman.h"
+
+1523029916 source:e:\graph_lib v3\graph.cpp
+	"graph.h"
+	<fstream>
+	<iostream>
+
+1523109054 source:c:\users\paulr\onedrive\documents\graph_lib v3\graph.cpp
+	"graph.h"
+	<fstream>
+	<iostream>
+
+1523108221 c:\users\paulr\onedrive\documents\graph_lib v3\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/widget.h"
+	"grman/grman.h"
+
+1522942052 c:\users\paulr\onedrive\documents\graph_lib v3\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522539042 c:\users\paulr\onedrive\documents\graph_lib v3\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222374 c:\users\paulr\onedrive\documents\graph_lib v3\grman\grman_couleurs.h
+
+1522575426 c:\users\paulr\onedrive\documents\graph_lib v3\grman\coords.h
+	<cmath>
+
+1522575070 source:c:\users\paulr\onedrive\documents\graph_lib v3\grman\coords.cpp
+	"coords.h"
+
+1522515824 source:c:\users\paulr\onedrive\documents\graph_lib v3\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522942052 source:c:\users\paulr\onedrive\documents\graph_lib v3\grman\widget.cpp
+	"widget.h"
+
+1523107663 source:c:\users\paulr\onedrive\documents\graph_lib v3\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"

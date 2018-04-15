@@ -13,43 +13,12 @@ int main()
 
     /// Un exemple de graphe
     Graph g;
-    int choix;
-
-    std::cout<<"que voulez vous faire" <<std::endl;
-
-    std::cin>>choix;
-
-    switch(choix)
-    {
-    case 1 :
-
-            std::cout<<"1: ajouter sommet "<< std::endl;
-            g.make_example();
-            g.ajouter_sommet();
-            g.sauvegarder();
-            break;
-
-    case 2 :
-        {
-            std::cout<<"2: ajouter arrete "<<std::endl;
-            break;
-        }
-    case 3 :
-        {
-            std::cout <<"3: supprimer sommet "<< std::endl;
-            break;
-        }
-    case 4 :
-        {
-            std::cout <<" 4: supprmier arrete" <<std::endl;
-            break;
-        }
-    }
-
-
-
-
-    //g.make_example();
+    g.make_example();
+   // g.get_vertices();
+   //g.ajouter_sommet();
+ //g.ajouter_arrete();
+  g.supprimer_arrete();
+ //g.supprimer_sommet(4);
 
 
     /// Vous gardez la main sur la "boucle de jeu"

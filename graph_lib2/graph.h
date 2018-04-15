@@ -288,13 +288,14 @@ private :
 
     /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
     std::shared_ptr<GraphInterface> m_interface = nullptr;
+
     std::string name;
     int tmp;
     int id=0;
     int s1,s2;
     int verx,very;
     unsigned int nb_sommet;
-    unsigned int nb_arrete;
+     unsigned int nb_arrete;
     int poids,value;
 public:
 
@@ -311,13 +312,15 @@ public:
     /// Cette méthode est à enlever et remplacer par un système
     /// de chargement de fichiers par exemple.
     void make_example();
+
     int get_posx();
     int get_posy();
-    void sauvegarder();
+    //std::map<int,Vertex>get_vertices(){return m_vertices ;}
     void ajouter_sommet();
     void ajouter_arrete();
-    void supprimer_sommet();
+    void supprimer_sommet(int eidx);
     void supprimer_arrete();
+    void sauvegarder();
     /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
     void update();
 };

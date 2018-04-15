@@ -1,8 +1,24 @@
 #include "graph.h"
+#include <fstream>
+#include <iostream>
 
 /***************************************************
                     VERTEX
 ****************************************************/
+Vertex::Vertex()
+{
+
+}
+
+Vertex::Vertex(std::string name,int verx,int very)
+{
+    m_name="";
+    m_verx=0;
+    m_very=0;
+}
+
+
+
 
 /// Le constructeur met en place les éléments de l'interface
 VertexInterface::VertexInterface(int idx, int x, int y, std::string pic_name, int pic_idx)
@@ -162,9 +178,63 @@ void Graph::make_example()
     // La ligne précédente est en gros équivalente à :
     // m_interface = new GraphInterface(50, 0, 750, 600);
 
+
+ std::string name,poubelle;
+ int idx;
+ int verx,very;
+ int nb_sommet;//nb_arrete;
+ int s1,s2;
+ float poids,value;
+
+std::ifstream fichier("graph 1.txt",std::ios::in);
+
+if(fichier)
+{
+    fichier>> nb_sommet;
+    getline(fichier,poubelle);
+     for (int i=0 ; i<nb_sommet;i++ )
+     {
+     getline(fichier,name);
+     fichier >>value >>verx,very;
+     getline(fichier,poubelle);
+    add_interfaced_vertex(i,value,verx,very, name+"jpg");
+     }
+
+}
+
+else
+    std::cout<< "impossible d'ouvrir le fichier" ;
+
+
+int cpt1=0,cpt2=0,id=0;
+fichier >> nb_sommet;
+for(int cpt1;cpt1<nb_sommet; cpt1++)
+{
+    for(unsigned int cpt2;cpt2<nb_sommet;cpt2++)
+    {
+        fichier >> poids;
+        if(poids!=0)
+        {
+            add_interfaced_edge(id,s1,s2,poids);
+            id++;
+        }
+
+    }
+}
+}
+
+
+
+
+
+
+
+
+
+
     /// Les sommets doivent être définis avant les arcs
-    // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    add_interfaced_vertex(0, 30.0, 200, 100, "Test1.jpg");
+    /* Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
+    add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
     add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
     add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
     add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
@@ -186,7 +256,7 @@ void Graph::make_example()
     add_interfaced_edge(8, 5, 2, 20.0);
     add_interfaced_edge(9, 3, 7, 80.0);
 }
-
+    */
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
 void Graph::update()
 {

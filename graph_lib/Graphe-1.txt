@@ -1,0 +1,17 @@
+8
+0 100 200 100 ankylosaure.png
+1 70 350 200 carnotaure.png
+2 40 300 300 diplodocus.png
+3 0 300 500 tyranosaure.png
+4 0 50 50 triceratops.png
+5 30 400 300 spinosaurus.png
+6 100 250 250 velociraptor.png
+7 70 100 300 stegosaure.png
+0 1 1 0 0 1 0 1
+0 0 1 0 0 0 0 1
+0 0 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 1 0 0
+0 0 0 1 1 0 0 0
+0 0 0 0 0 1 0 1
+0 0 0 1 1 1 0 0

@@ -147,10 +147,14 @@ class Vertex
         // Docu shared_ptr : https://msdn.microsoft.com/fr-fr/library/hh279669.aspx
         // La ligne précédente est en gros équivalent à la ligne suivante :
         // VertexInterface * m_interface = nullptr;
+         std::string m_name;
+
+         int m_verx,m_very;
 
 
     public:
-
+         Vertex();
+         Vertex(std::string name,int verx,int very);
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
         Vertex (double value=0, VertexInterface *interface=nullptr) :
@@ -161,6 +165,7 @@ class Vertex
         /// Voir l'implémentation Graph::update dans le .cpp
         void pre_update();
         void post_update();
+
 };
 
 
@@ -304,7 +309,7 @@ class Graph
         /// Cette méthode est à enlever et remplacer par un système
         /// de chargement de fichiers par exemple.
         void make_example();
-
+        void affiche_fichier();
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
         void update();

@@ -115,12 +115,12 @@
 	<fstream>
 	<iostream>
 
-1523120837 source:c:\users\paulr\onedrive\documents\graph_lib v3\graph.cpp
+1523113971 source:c:\users\paulr\onedrive\documents\graph_lib v3\graph.cpp
 	"graph.h"
 	<fstream>
 	<iostream>
 
-1523120837 c:\users\paulr\onedrive\documents\graph_lib v3\graph.h
+1523113952 c:\users\paulr\onedrive\documents\graph_lib v3\graph.h
 	<vector>
 	<map>
 	<string>
@@ -168,17 +168,17 @@
 1522942052 source:c:\users\paulr\onedrive\documents\graph_lib v3\grman\widget.cpp
 	"widget.h"
 
-1523120837 source:c:\users\paulr\onedrive\documents\graph_lib v3\main.cpp
+1523113927 source:c:\users\paulr\onedrive\documents\graph_lib v3\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
 
-1523120838 source:e:\projet piscine\graph_lib v8\graph.cpp
+1523113972 source:e:\projet piscine\graph_lib v7\graph.cpp
 	"graph.h"
 	<fstream>
 	<iostream>
 
-1523120838 e:\projet piscine\graph_lib v8\graph.h
+1523113954 e:\projet piscine\graph_lib v7\graph.h
 	<vector>
 	<map>
 	<string>
@@ -186,7 +186,7 @@
 	"grman/widget.h"
 	"grman/grman.h"
 
-1522942052 e:\projet piscine\graph_lib v8\grman\widget.h
+1522942052 e:\projet piscine\graph_lib v7\grman\widget.h
 	"grman.h"
 	<iostream>
 	<string>
@@ -194,22 +194,22 @@
 	<algorithm>
 	<allegro.h>
 
-1522539042 e:\projet piscine\graph_lib v8\grman\grman.h
+1522539042 e:\projet piscine\graph_lib v7\grman\grman.h
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
 
-1509222374 e:\projet piscine\graph_lib v8\grman\grman_couleurs.h
+1509222374 e:\projet piscine\graph_lib v7\grman\grman_couleurs.h
 
-1522575426 e:\projet piscine\graph_lib v8\grman\coords.h
+1522575426 e:\projet piscine\graph_lib v7\grman\coords.h
 	<cmath>
 
-1522575070 source:e:\projet piscine\graph_lib v8\grman\coords.cpp
+1522575070 source:e:\projet piscine\graph_lib v7\grman\coords.cpp
 	"coords.h"
 
-1522515824 source:e:\projet piscine\graph_lib v8\grman\grman.cpp
+1522515824 source:e:\projet piscine\graph_lib v7\grman\grman.cpp
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -223,55 +223,20 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
-1522942052 source:e:\projet piscine\graph_lib v8\grman\widget.cpp
+1522942052 source:e:\projet piscine\graph_lib v7\grman\widget.cpp
 	"widget.h"
 
-1522575070 source:c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\coords.cpp
-	"coords.h"
-
-1522575426 c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\coords.h
-	<cmath>
-
-1522515824 source:c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\grman.cpp
-	<cmath>
-	<unordered_map>
-	<unordered_set>
-	<utility>
-	<string>
-	<iostream>
-	<regex>
-	"grman.h"
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-
-1522539042 c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\grman.h
-	<allegro.h>
-	<string>
-	"grman_couleurs.h"
-	"coords.h"
-	"widget.h"
-
-1509222374 c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\grman_couleurs.h
-
-1522942052 c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\widget.h
-	"grman.h"
-	<iostream>
-	<string>
-	<vector>
-	<algorithm>
-	<allegro.h>
-
-1522942052 source:c:\users\bcauv\desktop\projet piscine\graph_lib v8\grman\widget.cpp
-	"widget.h"
-
-1523194850 source:c:\users\bcauv\desktop\projet piscine\graph_lib v8\main.cpp
+1523114066 source:e:\projet piscine\graph_lib v7\main.cpp
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
 
-1523120838 c:\users\bcauv\desktop\projet piscine\graph_lib v8\graph.h
+1523204872 source:e:\projet piscine\graph_lib v8 test\graph.cpp
+	"graph.h"
+	<fstream>
+	<iostream>
+
+1523204716 e:\projet piscine\graph_lib v8 test\graph.h
 	<vector>
 	<map>
 	<string>
@@ -279,7 +244,163 @@
 	"grman/widget.h"
 	"grman/grman.h"
 
-1523195820 source:c:\users\bcauv\desktop\projet piscine\graph_lib v8\graph.cpp
+1522942052 e:\projet piscine\graph_lib v8 test\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522539042 e:\projet piscine\graph_lib v8 test\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222374 e:\projet piscine\graph_lib v8 test\grman\grman_couleurs.h
+
+1522575426 e:\projet piscine\graph_lib v8 test\grman\coords.h
+	<cmath>
+
+1522575070 source:e:\projet piscine\graph_lib v8 test\grman\coords.cpp
+	"coords.h"
+
+1523204428 source:e:\projet piscine\graph_lib v8 test\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522942052 source:e:\projet piscine\graph_lib v8 test\grman\widget.cpp
+	"widget.h"
+
+1523204850 source:e:\projet piscine\graph_lib v8 test\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522575070 source:e:\projet piscine\graph_lib v8 test2\grman\coords.cpp
+	"coords.h"
+
+1522575426 e:\projet piscine\graph_lib v8 test2\grman\coords.h
+	<cmath>
+
+1523204428 source:e:\projet piscine\graph_lib v8 test2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522539042 e:\projet piscine\graph_lib v8 test2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222374 e:\projet piscine\graph_lib v8 test2\grman\grman_couleurs.h
+
+1522942052 e:\projet piscine\graph_lib v8 test2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522942052 source:e:\projet piscine\graph_lib v8 test2\grman\widget.cpp
+	"widget.h"
+
+1523204850 source:e:\projet piscine\graph_lib v8 test2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523204716 e:\projet piscine\graph_lib v8 test2\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/widget.h"
+	"grman/grman.h"
+
+1523207218 source:e:\projet piscine\graph_lib v8 test2\graph.cpp
+	"graph.h"
+	<fstream>
+	<iostream>
+
+1522575070 source:e:\projet piscine\graph_lib v9\grman\coords.cpp
+	"coords.h"
+
+1522575426 e:\projet piscine\graph_lib v9\grman\coords.h
+	<cmath>
+
+1523204428 source:e:\projet piscine\graph_lib v9\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522539042 e:\projet piscine\graph_lib v9\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1509222374 e:\projet piscine\graph_lib v9\grman\grman_couleurs.h
+
+1522942052 e:\projet piscine\graph_lib v9\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522942052 source:e:\projet piscine\graph_lib v9\grman\widget.cpp
+	"widget.h"
+
+1523204850 source:e:\projet piscine\graph_lib v9\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1523211522 e:\projet piscine\graph_lib v9\graph.h
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/widget.h"
+	"grman/grman.h"
+
+1523211030 source:e:\projet piscine\graph_lib v9\graph.cpp
 	"graph.h"
 	<fstream>
 	<iostream>

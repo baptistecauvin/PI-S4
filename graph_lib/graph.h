@@ -263,17 +263,22 @@ private :
 
     /// Dans cette boite seront ajoutés des boutons de contrôle etc...
     grman::WidgetBox m_tool_box;
+
     grman::WidgetButton m_save;
     grman::WidgetButton m_add_sommet;
     grman::WidgetButton m_add_arrete;
     grman::WidgetButton m_sup;
     grman::WidgetButton m_supa;
+    grman::WidgetButton m_back;
+    grman::WidgetButton m_q;
 
     grman::WidgetText m_text_save;
     grman::WidgetText m_text_adds;
     grman::WidgetText m_text_adda;
     grman::WidgetText m_text_sup;
-     grman::WidgetText m_text_supa;
+    grman::WidgetText m_text_supa;
+    grman::WidgetText m_text_back;
+    grman::WidgetText m_text_q;
 
 
     // A compléter éventuellement par des widgets de décoration ou
@@ -284,6 +289,7 @@ public :
     // Le constructeur met en place les éléments de l'interface
     // voir l'implémentation dans le .cpp
     GraphInterface(int x, int y, int w, int h);
+    int t();
 };
 
 
@@ -299,14 +305,15 @@ private :
 
     /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
     std::shared_ptr<GraphInterface> m_interface = nullptr;
-    std::string namef;
+
+    std::string fichier;
     std::string name;
     int tmp;
     int id=0;
     int s1,s2;
     int verx,very;
     unsigned int nb_sommet;
-     unsigned int nb_arrete;
+    unsigned int nb_arrete;
     int poids,value;
 public:
 
@@ -332,9 +339,11 @@ public:
     void ajouter_arrete();
     void supprimer_sommet(int eidx);
     void supprimer_arrete();
-    void sauvegarder();
+    void sauvegarder(std::string filename);
+    void retour();
     /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
     void update();
+    void quitter();
 };
 
 

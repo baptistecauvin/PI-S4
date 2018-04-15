@@ -1,5 +1,5 @@
-13
-35
+12
+34
 0 90 500 50 tyranosaure.png
 1 90 700 100 tyranosaure.png
 2 60 200 200 velociraptor.png

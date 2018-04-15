@@ -144,12 +144,13 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_top_box.add_child(m_tool_box);
     m_tool_box.set_dim(80,720);
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
-    m_tool_box.set_bg_color(VIOLET);
+    m_tool_box.set_bg_color(BLANCBLEU);
 
     m_top_box.add_child(m_main_box);
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
-    m_main_box.set_bg_color(SABLE);
+    m_main_box.set_bg_color(BLANCJAUNE);
+
 
     m_tool_box.add_child(m_save);
     m_save.add_child(m_text_save);
@@ -190,6 +191,22 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_supa.set_posy(160);
     m_supa.set_bg_color(KAKI);
     m_text_supa.set_message(" SUPPRIMER A ");
+
+    m_tool_box.add_child(m_back);
+    m_back.add_child(m_text_back);
+    m_back.set_dim(75,40);
+    m_back.set_posx(0);
+    m_back.set_posy(200);
+    m_back.set_bg_color(BLANC);
+    m_text_back.set_message(" RETOUR ");
+
+    m_tool_box.add_child(m_q);
+    m_q.add_child(m_text_q);
+    m_q.set_dim(75,40);
+    m_q.set_posx(0);
+    m_q.set_posy(240);
+    m_q.set_bg_color(VIOLET);
+    m_text_q.set_message(" QUITTER ");
 }
 
 Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
@@ -204,7 +221,92 @@ Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
 }
 
 
+void Graph::menu()
+{
+    BITMAP* menu_principal, *menu, *page;
 
+    menu_principal=load_bitmap("menu_principal.bmp",NULL);
+    if (!menu_principal)
+    {
+        allegro_message("pas pu trouver/charger menu_principal.bmp");
+        allegro_exit();
+        exit(EXIT_FAILURE);
+    }
+
+    page=load_bitmap("page.bmp",NULL);
+    if (!page)
+    {
+        allegro_message("pas pu trouver/charger page.bmp");
+        allegro_exit();
+        exit(EXIT_FAILURE);
+    }
+
+    menu=create_bitmap(SCREEN_W,SCREEN_H);
+
+    blit(menu_principal,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+
+    int choix=0;
+
+    while(choix!=4)
+    {
+
+        if(mouse_y>130 && mouse_x<400 && mouse_x>290 && mouse_y<160 && mouse_b&1)
+        {
+            choix=1;
+            draw_sprite(menu, page,0,0);
+        }
+
+        if(mouse_y>215 && mouse_x<400 && mouse_x>290 && mouse_y<250 && mouse_b&1)
+        {
+            choix=2;
+            draw_sprite(menu, page,0,0);
+
+        }
+
+        if(mouse_y>300 && mouse_x<400 && mouse_x>290 && mouse_y<335 && mouse_b&1)
+        {
+            choix=3;
+            draw_sprite(menu, page,0,0);
+        }
+
+        rest(20);
+
+
+        if(mouse_b&1 && choix<=4 && choix>=1)
+        {
+            switch(choix)
+            {
+            case 1:
+            {
+                choix=4;
+                fichier="Graphe-1.txt";
+                make_example(fichier);
+                break;
+            }
+            case 2:
+            {
+                choix=4;
+                fichier="Graphe-2.txt";
+                make_example(fichier);
+                break;
+            }
+            case 3:
+            {
+                choix=4;
+                fichier="Graphe-3.txt";
+                make_example(fichier);
+                break;
+            }
+            case 4:
+            {
+                exit(1);
+            }
+
+            }
+        }
+    }
+
+}
 /// Méthode spéciale qui construit un graphe arbitraire (démo)
 /// Cette méthode est à enlever et remplacer par un système
 /// de chargement de fichiers par exemple.
@@ -212,14 +314,12 @@ Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
 /// "à la main" dans le code comme ça.
 void Graph::make_example(std::string filename)
 {
-    m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
-
-
+    //Ouverture du fichier en mode lecture
     std::ifstream fichier(filename,std::ios::in);
-    namef=filename;
 
     if(fichier)
     {
+        m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
         fichier>> nb_sommet;
         fichier>> nb_arrete;
 
@@ -244,20 +344,20 @@ void Graph::make_example(std::string filename)
         fichier.close();
     }
 
-
     else
         std::cout<< "impossible d'ouvrir le fichier" ;
 
 }
 
 
-void Graph::sauvegarder()
+void Graph::sauvegarder(std::string filename)
 {
+
     if(m_interface->m_save.clicked())
     {
 
-        std::ofstream fichier(namef,std::ios::out);
 
+        std::ofstream fichier(filename,std::ios::out);
         fichier << m_vertices.size()<<std::endl;
         fichier << m_edges.size()<<std::endl;
         for(auto it=m_vertices.begin(); it!=m_vertices.end(); ++it)
@@ -273,12 +373,12 @@ void Graph::sauvegarder()
         }
 
         int i=0;
-        for( auto it=m_edges.begin(); it!=m_edges.end(); ++it)
+        for(const auto & it:m_edges)
         {
             fichier<<i; //id
-            fichier<<" "<<it->second.m_from; //S1
-            fichier<<" "<<it->second.m_to; //S2
-            fichier<<" "<<it->second.m_weight<<"\n"; //poid
+            fichier<<" "<<it.second.m_from; //S1
+            fichier<<" "<<it.second.m_to; //S2
+            fichier<<" "<<it.second.m_weight<<"\n"; //poid
             i++;
         }
 
@@ -306,12 +406,10 @@ void Graph::ajouter_sommet()
 
     }
 }
-
 void Graph::ajouter_arrete()
 {
     if(m_interface->m_add_arrete.clicked())
     {
-
         int S1,S2;
         int poid;
 
@@ -331,12 +429,7 @@ void Graph::supprimer_arrete()
     if(m_interface->m_supa.clicked())
     {
 
-        int eidx=4;
-
-
-
-
-        /// référence vers le Edge à enlever
+        int eidx=4; /// référence vers le Edge à enlever
         Edge &remed=m_edges.at(eidx);
 
         std::cout << "Removing edge " << eidx << " " << remed.m_from << "->" << remed.m_to << " " << remed.m_weight << std::endl;
@@ -407,8 +500,30 @@ void Graph::supprimer_sommet(int eidx)
         }
         m_interface->m_main_box.remove_child( remed.m_interface->m_top_box );
         m_vertices.erase( eidx );
+    }
+}
+
+
+void Graph::retour()
+{
+    Graph g;
+    g.menu();
+    while(!m_interface->m_back.clicked())
+    {
+        g.update();
+        grman::mettre_a_jour();
 
     }
+}
+
+void Graph::quitter()
+{
+    if(m_interface->m_q.clicked())
+    {
+        grman::fermer_allegro();
+        exit(1);
+    }
+
 }
 
 /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
@@ -431,6 +546,27 @@ void Graph::update()
     for (auto &elt : m_edges)
         elt.second.post_update();
 
+    sauvegarder(fichier);
+    ajouter_arrete();
+    ajouter_sommet();
+    supprimer_arrete();
+    g.supprimer_sommet();
+    quitter();
+
+    int a=m_interface->t();
+    if(a==1)
+    {
+        retour();
+    }
+
+}
+
+int GraphInterface::t()
+{
+    if(m_back.clicked())
+    {
+        return 1;
+    }
 }
 
 /// Aide à l'ajout de sommets interfacés

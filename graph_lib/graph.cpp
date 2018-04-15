@@ -144,18 +144,43 @@ GraphInterface::GraphInterface(int x, int y, int w, int h)
     m_top_box.add_child(m_tool_box);
     m_tool_box.set_dim(80,720);
     m_tool_box.set_gravity_xy(grman::GravityX::Left, grman::GravityY::Up);
-    m_tool_box.set_bg_color(BLANCBLEU);
+    m_tool_box.set_bg_color(VIOLET);
 
     m_top_box.add_child(m_main_box);
     m_main_box.set_dim(908,720);
     m_main_box.set_gravity_xy(grman::GravityX::Right, grman::GravityY::Up);
-    m_main_box.set_bg_color(BLANCJAUNE);
+    m_main_box.set_bg_color(SABLE);
+
+    m_tool_box.add_child(m_save);
+    m_save.add_child(m_text_save);
+    m_save.set_dim(75,40);
+    m_save.set_posx(0);
+    m_save.set_posy(0);
+    m_save.set_bg_color(ORANGE);
+    m_text_save.set_message(" SAVE ");
+
+    m_tool_box.add_child(m_add);
+    m_add.add_child(m_text_add);
+    m_add.set_dim(75,40);
+    m_add.set_posx(0);
+    m_add.set_posy(40);
+    m_add.set_bg_color(VERT);
+    m_text_add.set_message(" AJOUTER ");
+
+    m_tool_box.add_child(m_sup);
+    m_sup.add_child(m_text_sup);
+    m_sup.set_dim(75,40);
+    m_sup.set_posx(0);
+    m_sup.set_posy(80);
+    m_sup.set_bg_color(ROUGE);
+    m_text_sup.set_message(" SUPPRIMER ");
 }
 
-Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
+Graph::Graph(int x,int t,unsigned int nb,unsigned int nba,int p,int val,int vx,int vy)
 {
     x=id;
     nb=nb_sommet;
+    nba=nb_arrete;
     p=poids;
     val=value;
     vx=verx;
@@ -167,20 +192,31 @@ Graph::Graph(int x,int t,unsigned int nb,int p,int val,int vx,int vy)
 /// de chargement de fichiers par exemple.
 /// Bien sûr on ne veut pas que vos graphes soient construits
 /// "à la main" dans le code comme ça.
+
+void Graph::initial()
+{
+    id=0;
+    nb_sommet=0;
+    nb_arrete=0;
+    poids=0;
+    value=0;
+    verx=0;
+    very=0;
+    tmp=0;
+    idx=0;
+}
 void Graph::make_example()
 {
     m_interface = std::make_shared<GraphInterface>(50, 0, 750, 600);
 
-
-
-    std::ifstream fichier("Graphe-2.txt",std::ios::in);
+    std::ifstream fichier("Graphe-1.txt",std::ios::in);
 
     if(fichier)
     {
         fichier>> nb_sommet;
         fichier>> nb_arrete;
 
-        for (int i=0 ; i<nb_sommet; i++ )
+        for (unsigned int i=0 ; i<nb_sommet; i++ )
         {
             fichier >>tmp;
             fichier >>value;
@@ -190,7 +226,7 @@ void Graph::make_example()
             add_interfaced_vertex(i,value,verx,very, name);
         }
 
-        for(int j=0; j<nb_arrete; j++)
+        for(unsigned int j=0; j<nb_arrete; j++)
         {
             fichier >>tmp;
             fichier >> s1;
@@ -198,12 +234,11 @@ void Graph::make_example()
             fichier >> poids;
             add_interfaced_edge(j,s1,s2,poids);
         }
-        fichier.close();
+     fichier.close();
     }
 
 
-    else
-        std::cout<< "impossible d'ouvrir le fichier" ;
+    else std::cout<< "impossible d'ouvrir le fichier" ;
 
 }
 
@@ -211,7 +246,7 @@ void Graph::make_example()
 void Graph::sauvegarder()
 {
 
-    std::ofstream fichier("Graphe-2.txt",std::ios::out);
+    std::ofstream fichier("Graphe-1.txt",std::ios::out);
     fichier << nb_sommet<<std::endl;
     fichier << nb_arrete<<std::endl;
     for(auto it=m_vertices.begin(); it!=m_vertices.end(); ++it)
@@ -223,10 +258,9 @@ void Graph::sauvegarder()
         fichier << it->second.m_interface->m_top_box.get_posy()<<" ";
         fichier << it->second.m_interface->m_img.get_pic_name()<<std::endl;
 
-
     }
 
-    for( int i=0; i<nb_arrete; i++)
+    for(unsigned int i=0; i<nb_arrete;i++)
     {
         fichier <<i<<" ";
         fichier << m_edges[i].m_from<<" ";
@@ -234,7 +268,7 @@ void Graph::sauvegarder()
         fichier << m_edges[i].m_weight<<std::endl;
     }
 
-    fichier.close();
+  fichier.close();
 }
 
 
@@ -300,7 +334,8 @@ void Graph::add_interfaced_edge(int idx, int id_vert1, int id_vert2, double weig
     m_edges[idx].m_from = id_vert1;
     m_edges[idx].m_to = id_vert2;
 
-    m_vertices[id_vert1].m_out.push_back(id_vert2);
-    m_vertices[id_vert2].m_in.push_back(id_vert1);
+    m_vertices[id_vert1].m_out.push_back(idx);
+    m_vertices[id_vert2].m_in.push_back(idx);
+
 }
 

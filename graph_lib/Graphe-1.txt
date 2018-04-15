@@ -1,25 +1,17 @@
-8
-15
-0 100 248 543 tyranosaure.png
-1 70 572 28 carnotaure.png
-2 40 595 523 diplodocus.png
-3 0 161 322 ankylosaure.png
-4 0 40 40 triceratops.png
-5 30 679 307 spinosaurus.png
-6 100 -7 241 velociraptor.png
-7 70 -7 575 stegosaure.png
+6
+9
+0 60 302 10 spinosaurus.png
+1 50 559 83 ours.png
+2 40 516 340 loup.png
+3 30 326 503 renard.jpg
+4 20 105 415 taupe.jpg
+5 10 76 154 ver.png
 0 0 1 0
 1 0 2 0
-2 0 5 0
-3 0 7 0
+2 0 3 0
+3 0 4 0
 4 1 2 0
-5 1 7 0
-6 2 3 0
-7 2 4 0
-8 4 5 0
-9 5 3 0
-10 5 4 0
-11 6 5 0
-12 6 7 0
-13 7 3 0
-14 7 4 0
+5 2 3 0
+6 3 4 0
+7 4 5 0
+8 5 0 0

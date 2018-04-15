@@ -264,6 +264,14 @@ private :
     /// Dans cette boite seront ajoutés des boutons de contrôle etc...
     grman::WidgetBox m_tool_box;
 
+    grman::WidgetButton m_save;
+    grman::WidgetButton m_add;
+    grman::WidgetButton m_sup;
+
+    grman::WidgetText m_text_save;
+    grman::WidgetText m_text_add;
+    grman::WidgetText m_text_sup;
+
 
     // A compléter éventuellement par des widgets de décoration ou
     // d'édition (boutons ajouter/enlever ...)
@@ -295,15 +303,16 @@ private :
     int s1,s2;
     int verx,very;
     unsigned int nb_sommet;
-     unsigned int nb_arrete;
-    int poids,value;
+    unsigned int nb_arrete;
+    int poids,value,idx;
 public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
     /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
     Graph (GraphInterface *interface=nullptr) :
         m_interface(interface)  {  }
-     Graph(int x,int t,unsigned int nb ,int p,int val,int vx,int vy);
+    Graph(int x,int t,unsigned int nb, unsigned int nba, int p,int val,int vx,int vy);
+    void initial();
     void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
     void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 

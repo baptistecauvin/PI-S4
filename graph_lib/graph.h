@@ -263,14 +263,17 @@ private :
 
     /// Dans cette boite seront ajoutés des boutons de contrôle etc...
     grman::WidgetBox m_tool_box;
-
     grman::WidgetButton m_save;
-    grman::WidgetButton m_add;
+    grman::WidgetButton m_add_sommet;
+    grman::WidgetButton m_add_arrete;
     grman::WidgetButton m_sup;
+    grman::WidgetButton m_supa;
 
     grman::WidgetText m_text_save;
-    grman::WidgetText m_text_add;
+    grman::WidgetText m_text_adds;
+    grman::WidgetText m_text_adda;
     grman::WidgetText m_text_sup;
+     grman::WidgetText m_text_supa;
 
 
     // A compléter éventuellement par des widgets de décoration ou
@@ -296,23 +299,22 @@ private :
 
     /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
     std::shared_ptr<GraphInterface> m_interface = nullptr;
-
+    std::string namef;
     std::string name;
     int tmp;
     int id=0;
     int s1,s2;
     int verx,very;
     unsigned int nb_sommet;
-    unsigned int nb_arrete;
-    int poids,value,idx;
+     unsigned int nb_arrete;
+    int poids,value;
 public:
 
     /// Les constructeurs sont à compléter selon vos besoin...
     /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
     Graph (GraphInterface *interface=nullptr) :
         m_interface(interface)  {  }
-    Graph(int x,int t,unsigned int nb, unsigned int nba, int p,int val,int vx,int vy);
-    void initial();
+     Graph(int x,int t,unsigned int nb ,int p,int val,int vx,int vy);
     void add_interfaced_vertex(int idx, double value, int x, int y, std::string pic_name="", int pic_idx=0 );
     void add_interfaced_edge(int idx, int vert1, int vert2, double weight=0);
 
@@ -320,11 +322,16 @@ public:
     /// Voir implémentation dans le .cpp
     /// Cette méthode est à enlever et remplacer par un système
     /// de chargement de fichiers par exemple.
-    void make_example();
+    void make_example(std::string filename);
+    void menu();
 
     int get_posx();
     int get_posy();
-
+    //std::map<int,Vertex>get_vertices(){return m_vertices ;}
+    void ajouter_sommet();
+    void ajouter_arrete();
+    void supprimer_sommet(int eidx);
+    void supprimer_arrete();
     void sauvegarder();
     /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
     void update();

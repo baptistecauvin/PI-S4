@@ -312,6 +312,7 @@ public:
     /// Cette méthode est à enlever et remplacer par un système
     /// de chargement de fichiers par exemple.
     void make_example();
+    void menu();
 
     int get_posx();
     int get_posy();

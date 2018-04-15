@@ -17,7 +17,14 @@ int main()
    // g.get_vertices();
    //g.ajouter_sommet();
  //g.ajouter_arrete();
-  g.supprimer_arrete();
+ /*  std::cout<<"choisir l'indice de l'arete a enlever"<<std::endl;
+
+  for( const auto& it : m_edges )
+    {
+        std::cout << "numero: " << it.first << ", sommet de depart: " << it.second.m_from << ", sommet d'arrivee: " << it.second.m_to << std::endl;
+    }
+    std::cin>> eidx; */
+ // g.supprimer_arrete();
  //g.supprimer_sommet(4);
 
 
